@@ -1,0 +1,18 @@
+version: '2'
+services:
+    openeo:
+        privileged: true
+        devices:
+            - /dev/spidev0.0
+            - /dev/spidev0.1
+            - /dev/gpiomem
+        ports:
+            - 5050:80
+        volumes:
+            - ./config.json:/app/config.json
+            - ./version.txt:/app/version.txt
+            - /dev/log:/dev/log
+            - /sys/class/thermal:/sys/class/thermal
+        build:
+            context: .
+            dockerfile: Dockerfile
