@@ -7,7 +7,7 @@ services:
             - /dev/spidev0.1
             - /dev/gpiomem
         ports:
-            - 5050:80
+            - 80:80
         volumes:
             - ./config.json:/app/config.json
             - ./version.txt:/app/version.txt
